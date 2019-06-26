@@ -25,9 +25,8 @@ public class FilteringApples{
         System.out.println("-------------------------------------------------");
         // 分组
         Map<String, List<Apple>> map = inventory.stream().collect(Collectors.groupingBy(Apple::getColor));
-        for (String key : map.keySet()) {
-            System.out.println(map.get(key));
-        }
+
+        System.out.println(map);
     }
 
     public static List<Apple> filterApplesByColor(List<Apple> inventory, String color) {
