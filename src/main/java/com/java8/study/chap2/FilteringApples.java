@@ -29,6 +29,27 @@ public class FilteringApples{
         System.out.println(map);
     }
 
+    /**
+     * 挑选绿色苹果
+     * @param inventory
+     * @return
+     */
+    public static List<Apple> filterGreenApples(List<Apple> inventory) {
+        List<Apple> apples = new ArrayList<>();
+        for (Apple apple : inventory) {
+            if ("green".equalsIgnoreCase(apple.getColor())) {
+                apples.add(apple);
+            }
+        }
+        return apples;
+    }
+
+    /**
+     * 根据颜色挑选苹果
+     * @param inventory
+     * @param color
+     * @return
+     */
     public static List<Apple> filterApplesByColor(List<Apple> inventory, String color) {
         List<Apple> apples = new ArrayList<>();
         for (Apple apple : inventory) {
@@ -39,6 +60,12 @@ public class FilteringApples{
         return apples;
     }
 
+    /**
+     * 根据重量挑选苹果
+     * @param inventory
+     * @param weight
+     * @return
+     */
     public static List<Apple> filterApplesByWeight(List<Apple> inventory, int weight) {
         List<Apple> apples = new ArrayList<>();
         for (Apple apple : inventory) {
@@ -49,6 +76,12 @@ public class FilteringApples{
         return apples;
     }
 
+    /**
+     * 根据条件挑选
+     * @param inventory
+     * @param p
+     * @return
+     */
     public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate<Apple> p) {
         List<Apple> apples = new ArrayList<>();
         for (Apple apple : inventory) {
