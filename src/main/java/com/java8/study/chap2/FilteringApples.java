@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FilteringApples{
@@ -47,9 +44,6 @@ public class FilteringApples{
         // 分组
         Map<String, List<Apple>> map = inventory.stream().collect(Collectors.groupingBy(Apple::getColor));
 
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
-        List<Integer> nums = filter(numbers, i -> i > 3);
-        System.out.println(nums);
         System.out.println(map);
     }
 
