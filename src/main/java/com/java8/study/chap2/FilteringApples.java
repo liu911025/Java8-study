@@ -154,6 +154,7 @@ class Apple {
     public static boolean isHeavyApple(Apple apple) {
         return apple.getWeight() > 150;
     }
+
 }
 /**
  * 选择标准(谓语)
