@@ -32,7 +32,7 @@ public class FilteringApples{
         /**
          * lambda
          */
-        List<Apple> redApples = filterApples(inventory, (Apple apple) -> "red".equals(apple.getColor()));
+        List<Apple> redApples = filterApples(inventory, (Apple apple) -> { return "red".equals(apple.getColor());});
         System.out.println("redApples: " + redApples);
 
         List<Apple> heavyApples = filterApples(inventory, Apple::isHeavyApple);
