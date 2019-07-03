@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class FilteringApples{
@@ -38,7 +39,7 @@ public class FilteringApples{
         List<Apple> heavyApples = filterApples(inventory, Apple::isHeavyApple);
         System.out.println("heavyApples: " + heavyApples);
 
-        List<Apple> greenApples2 = inventory.stream().filter(a -> "green".equals(a.getColor())).collect(Collectors.toList());
+        List<Apple> greenApples2 = inventory.stream().filter((Apple a) -> "green".equals(a.getColor())).collect(Collectors.toList());
         System.out.println("greenApples2: " + greenApples2);
         System.out.println("-------------------------------------------------");
         // 分组
