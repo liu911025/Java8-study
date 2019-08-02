@@ -22,11 +22,9 @@ public class FilteringApples{
         /**
          * 匿名类
          */
-        List<Apple> blueApples = filterApples(inventory, new ApplePredicate<Apple>() {
-            @Override
-            public boolean test(Apple apple) {
+        List<Apple> blueApples = filterApples(inventory, (apple) -> {
+                System.out.println("蓝苹果");
                 return "blue".equalsIgnoreCase(apple.getColor());
-            }
         });
         System.out.println(blueApples);
 
