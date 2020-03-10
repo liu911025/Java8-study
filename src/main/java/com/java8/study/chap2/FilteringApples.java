@@ -4,7 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -44,6 +49,9 @@ public class FilteringApples{
         Map<String, List<Apple>> map = inventory.stream().collect(Collectors.groupingBy(Apple::getColor));
 
         System.out.println(map);
+
+        List<String> map1 = map(inventory, (apple) -> apple.getColor());
+
     }
 
     /**
@@ -128,12 +136,26 @@ public class FilteringApples{
      * @param <T>
      * @return
      */
-    public static <T> List<T> filter(List<T> list, ApplePredicate<T> p) {
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
         List<T> result = new ArrayList<>();
         for (T t : list) {
             if (p.test(t)) {
                 result.add(t);
             }
+        }
+        return result;
+    }
+
+    public static <T> void forEach(List<T> list, Consumer<T> c) {
+        for (T t : list) {
+            c.accept(t);
+        }
+    }
+
+    public static <T, R> List<R> map(List<T> list, Function<T, R> f) {
+        List<R> result = new ArrayList<>();
+        for (T t : list) {
+            result.add(f.apply(t));
         }
         return result;
     }
